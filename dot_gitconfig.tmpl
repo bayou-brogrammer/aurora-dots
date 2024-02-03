@@ -1,0 +1,16 @@
+[credential "https://github.com"]
+	helper =
+	helper = !/home/hikaru/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/home/hikaru/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/gh auth git-credential
+[user]
+	name = {{ .name | quote }}
+	email = {{ .email | quote }}
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[rebase]
+	autoStash = true
