@@ -1,11 +1,31 @@
-#!/bin/zsh
 #
-# .zstyles - Set zstyle settings for plugins that need them.
+# .zstyles - zstyle settings for features/plugins that need them.
 #
 
 #
 # Antidote
 #
 
-# zstyle ':antidote:bundle' file ${ZDOTDIR:-~}/.zplugins.txt
-# zstyle ':antidote:bundle' use-friendly-names 'yes'
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+zstyle ':antidote:plugin:*' defer-options '-p'
+
+#
+# Zephyr
+#
+
+zstyle ':zephyr:plugin:prompt' theme zephyr
+
+#
+# Custom
+#
+
+noexpand=(
+  ls
+  grep
+  gpg
+  vi
+  z
+)
+zstyle ':zsh_custom:plugin:abbreviations' noexpand $noexpand
+
+# vim: ft=zsh sw=2 ts=2 et

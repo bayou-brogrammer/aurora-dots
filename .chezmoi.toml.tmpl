@@ -13,6 +13,10 @@
 encryption = "gpg"
 [gpg]
 
+[merge]
+    command = "meld"
+    args = ["{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+
 [data]
   name = "Jacob L."
 {{- if regexMatch "*dna*$" .chezmoi.hostname }}
