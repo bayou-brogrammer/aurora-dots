@@ -170,3 +170,5 @@ alias cargo-install 'cargo install --path .'
 if status --is-interactive && type -q fastfetch
    fastfetch --config neofetch.jsonc
 end
+
+~/.local/bin/mise activate fish | source
