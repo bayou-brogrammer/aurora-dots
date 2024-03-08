@@ -7,7 +7,7 @@ My fish shell configuration
 ```fish
 # get the repo
 test -d ~/.config/fish && mv ~/.config/fish ~/.config/fish.bak
-git clone git@github.com:mattmc3/fishconf ~/.config/fish
+git clone git@github.com:bayou-brogrammer/fishconf ~/.config/fish
 fish
 
 # select color scheme - I like Nord or Tomorrow Night
