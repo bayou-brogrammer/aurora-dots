@@ -1,0 +1,16 @@
+if type brew &>/dev/null; then
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+    autoload -Uz compinit
+    compinit
+fi
+# initialize apps
+# starship
+eval "$(starship init zsh)"
+# zoxide
+eval "$(zoxide init zsh)"
+# direnv
+eval "$(direnv hook zsh)"
+# atuin
+if [[ $options[zle] = on ]]; then
+  eval "$(atuin init zsh )"
+fi

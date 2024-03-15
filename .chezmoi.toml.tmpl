@@ -13,16 +13,20 @@
 encryption = "gpg"
 [gpg]
 
+[diff]
+command = "delta"
+
 [merge]
-command = "meld"
-args = ["{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+command = "nvim"
+args = ["-d", "{{ "{{" }} .Destination }}", "{{ "{{" }} .Source }}"]
+#args = ["-d", "{{ "{{" }} .Destination }}", "{{ "{{" }} .Source }}", "{{ "{{" }} .Target }}"]
 
 [data]
-  name = "Jacob L."
+name = "Jacob L."
 {{- if regexMatch "*dna*$" .chezmoi.hostname }}
-  email = "jlecoq@dnanexus.com"
+email = "jlecoq@dnanexus.com"
 {{ else }}
-  email = "lecoqjacob@gmail.com"
+email = "lecoqjacob@gmail.com"
 {{- end }}
 
 [data.cpu]

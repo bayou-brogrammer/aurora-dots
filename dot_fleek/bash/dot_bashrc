@@ -1,0 +1,9 @@
+# starship
+eval "$(starship init bash)"
+# zoxide
+eval "$(zoxide init bash)"
+# direnv
+eval "$(direnv hook bash)"
+# atuin
+[ -f $HOMEBREW_PREFIX/etc/profile.d/bash-preexec.sh ] && . $HOMEBREW_PREFIX/etc/profile.d/bash-preexec.sh        
+eval "$(atuin init bash)"
