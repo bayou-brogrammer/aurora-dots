@@ -52,6 +52,7 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      taplo = { filetypes = { "toml", "template" } },
     },
     -- customize how language servers are attached
     handlers = {

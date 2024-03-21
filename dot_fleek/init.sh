@@ -1,17 +1,18 @@
-shell=`ps -p $$ | awk 'NR>1  {print $4}' | sed 's/-//g'`
+shell=$(ps -p $$ | awk 'NR>1  {print $4}' | sed 's/-//g')
 SCRIPT_PATH="$HOME/.fleek"
+
 if ! [ -x "$(command -v brew)" ]; then
-  return
+	return
 fi
+
 case $(basename $shell) in
-     "zsh" )
-            . $SCRIPT_PATH/zsh/.zshrc
-           ;;
-     "bash" )
-            . $SCRIPT_PATH/bash/.bashrc
-           ;;
-     * )
-           ;;
+"zsh")
+	. $SCRIPT_PATH/zsh/.zshrc
+	;;
+"bash")
+	. $SCRIPT_PATH/bash/.bashrc
+	;;
+*) ;;
 esac
 
 source $SCRIPT_PATH/scripts.sh

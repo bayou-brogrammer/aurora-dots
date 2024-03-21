@@ -1,17 +1,23 @@
-{{- $cpuCores := 1 }}
-{{- $cpuThreads := 1 }}
-{{- if eq .chezmoi.os "darwin" }}
-{{-   $cpuCores = (output "sysctl" "-n" "hw.physicalcpu_max") | trim | atoi }}
-{{-   $cpuThreads = (output "sysctl" "-n" "hw.logicalcpu_max") | trim | atoi }}
-{{- else if eq .chezmoi.os "linux" }}
-{{-   $cpuCores = (output "sh" "-c" "lscpu --online --parse | grep --invert-match '^#' | sort --field-separator=',' --key='2,4' --unique | wc --lines") | trim | atoi }}
-{{-   $cpuThreads = (output "sh" "-c" "lscpu --online --parse | grep --invert-match '^#' | wc --lines") | trim | atoi }}
-{{- else if eq .chezmoi.os "windows" }}
-{{-   $cpuCores = (output "powershell.exe" "-NoProfile" "-NonInteractive" "-Command" "(Get-CimInstance -ClassName 'Win32_Processor').NumberOfCores") | trim | atoi }}
-{{-   $cpuThreads = (output "powershell.exe" "-NoProfile" "-NonInteractive" "-Command" "(Get-CimInstance -ClassName 'Win32_Processor').NumberOfLogicalProcessors") | trim | atoi }}
-{{- end -}}
-encryption = "gpg"
-[gpg]
+# vim: syntax=toml
+
+# ~/.local/share/chezmoi/.chezmoi.toml.tmpl
+# =============================================================================
+# Used to customize configuration when doing a `chezmoi init`.
+#
+# This template file will trigger prompts to fill-in machine-specific
+# templateable values. The resulting file is then created at
+# `~/.config/chezmoi/chezmoi.toml`
+# See https://www.chezmoi.io/docs/how-to/
+#
+# {{- /* This file supports Go's text/template language. */}}
+
+# umask
+umask = 0o022
+
+# show progress
+progress = true
+
+{{ $computer := promptStringOnce . "computer" "computer type (work/self)" }}
 
 [diff]
 command = "delta"
@@ -19,17 +25,35 @@ command = "delta"
 [merge]
 command = "nvim"
 args = ["-d", "{{ "{{" }} .Destination }}", "{{ "{{" }} .Source }}"]
-#args = ["-d", "{{ "{{" }} .Destination }}", "{{ "{{" }} .Source }}", "{{ "{{" }} .Target }}"]
 
 [data]
-name = "Jacob L."
-{{- if regexMatch "*dna*$" .chezmoi.hostname }}
-email = "jlecoq@dnanexus.com"
-{{ else }}
-email = "lecoqjacob@gmail.com"
+computer = {{ $computer | quote }}
+
+[data.git]
+{{- if eq $computer "work" }}
+public_key = "{{ (bitwardenFields "item" "ssh_keys").PublicKey.value }}"
+{{- end }}
+{{- if eq $computer "self" }}
+public_key = "{{ (bitwardenFields "item" "ssh_keys").PublicKey.value }}"
 {{- end }}
 
-[data.cpu]
-cores = {{ $cpuCores }}
-threads = {{ $cpuThreads }}
+[data.user]
+name   = "Jacob L."
+{{- if eq $computer "work" }}
+email  = "{{ (bitwarden "item" "2856707e-1bb5-4975-9ae7-b1370151f25f").login.username }}"
+gpg_id = "{{ (bitwardenFields "item" "6e2ee37b-12aa-4c73-9995-b13800f7f5dc").PublicKey.value }}"
+{{- end }}
+{{- if eq $computer "self" }}
+email  = "{{ (bitwarden "item" "e0b67412-b8a2-4606-9ad9-b137016459b8").login.username }}"
+gpg_id = "{{ (bitwardenFields "item" "6e2ee37b-12aa-4c73-9995-b13800f7f5dc").PublicKey.value }}"
+{{- end }}
 
+[data.github]
+{{- if eq $computer "work" }}
+user  = "{{ (bitwarden "item" "b7085ef3-19fb-4157-ad04-b0850001284b").login.username }}"
+token = "{{ (bitwardenFields "item" "b7085ef3-19fb-4157-ad04-b0850001284b").Token.value }}"
+{{- end }}
+{{- if eq $computer "self" }}
+user  = "{{ (bitwarden "item" "b7085ef3-19fb-4157-ad04-b0850001284b").login.username }}"
+token = "{{ (bitwardenFields "item" "b7085ef3-19fb-4157-ad04-b0850001284b").Token.value }}"
+{{- end }}
