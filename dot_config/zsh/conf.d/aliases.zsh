@@ -8,7 +8,9 @@
 # - https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 # - https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
 #
-echo "HELLO"
+
+# common config
+export EDITOR=nvim
 
 # single character shortcuts - be sparing!
 alias _=sudo
