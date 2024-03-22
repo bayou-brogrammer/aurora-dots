@@ -1,7 +1,7 @@
 # PERSONAL EXTERNAL REPOSITORIES
-[".config/zsh"]
-url = "https://github.com/bayou-brogrammer/zsh/zdotdir"
-type = "git-repo"
+# [".config/zsh"]
+# url = "https://github.com/bayou-brogrammer/zdotdir"
+# type = "git-repo"
 
 # EXTERNAL REPOSITORIES
 
