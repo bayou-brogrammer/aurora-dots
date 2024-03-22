@@ -1,22 +1,28 @@
-# # EXTERNAL REPOSITORIES
-# [".cache/tpm/tpm"]
-# url = "https://github.com/tmux-plugins/tpm"
-# type = "git-repo"
-#
-# [".cache/neofetch"]
-# url = "https://github.com/chick2d/neofetch-themes"
-# type = "git-repo"
-#
-# [".cache/color-scripts"]
-# url = "https://gitlab.com/dwt1/shell-color-scripts"
-# type = "git-repo"
-# refreshPeriod = "24h"
-#
-# [".cache/pokemon-scripts"]
-# url = "https://gitlab.com/phoneybadger/pokemon-colorscripts"
-# type = "git-repo"
-# refreshPeriod = "24h"
-#
+# PERSONAL EXTERNAL REPOSITORIES
+[".config/zsh"]
+url = "https://github.com/bayou-brogrammer/zsh/zdotdir"
+type = "git-repo"
+
+# EXTERNAL REPOSITORIES
+
+[".cache/tpm/tpm"]
+url = "https://github.com/tmux-plugins/tpm"
+type = "git-repo"
+
+[".cache/neofetch"]
+url = "https://github.com/chick2d/neofetch-themes"
+type = "git-repo"
+
+[".cache/color-scripts"]
+url = "https://gitlab.com/dwt1/shell-color-scripts"
+type = "git-repo"
+refreshPeriod = "24h"
+
+[".cache/pokemon-scripts"]
+url = "https://gitlab.com/phoneybadger/pokemon-colorscripts"
+type = "git-repo"
+refreshPeriod = "24h"
+
 # # EXTERNAL BINARIES
 # [".local/bin/sn"]
 # url = "https://github.com/jonhadfield/sn-cli/releases/download/{{ .sn_version }}/sn-cli_Darwin_arm64.zip"

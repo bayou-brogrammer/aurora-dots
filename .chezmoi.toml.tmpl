@@ -19,6 +19,12 @@ progress = true
 
 {{ $computer := promptStringOnce . "computer" "computer type (work/self)" }}
 
+encryption = "age"
+
+[age]
+identity = "~/key.txt"
+recipient = "age1fsfaf4nejeqdfea4gqd06lseq46w2zdfvax294psd8n48uvdepjq5telqs"
+
 [diff]
 command = "delta"
 exclude = ["scripts"]
