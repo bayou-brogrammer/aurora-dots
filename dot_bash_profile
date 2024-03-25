@@ -8,4 +8,4 @@ fi
 # User specific environment and startup programs
 . "$HOME/.cargo/env"
 
-source /var/home/hikarii/.config/broot/launcher/bash/br
+source ~/.config/broot/launcher/bash/br

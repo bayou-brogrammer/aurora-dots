@@ -1,7 +1,7 @@
 {
   "AstroNvim": {
     "branch": "v4",
-    "commit": "aedddcf9fc686729031578869e5a98032ca17449"
+    "commit": "42a93b9e8f3be9de7cf09fec32dc41ec5e4d5bdb"
   },
   "Comment.nvim": {
     "branch": "master",
@@ -21,7 +21,7 @@
   },
   "astrocommunity": {
     "branch": "v4",
-    "commit": "e89f1191603bac8accbc9110640ff57483af7de4"
+    "commit": "6b272683452fd7079b0fe3f4c36398995cc81993"
   },
   "astrocore": {
     "branch": "main",
@@ -157,7 +157,7 @@
   },
   "nvim-dap": {
     "branch": "master",
-    "commit": "c1695e500c7d552a0a19953a9aefcc89178fb1af"
+    "commit": "405df1dcc2e395ab5173a9c3d00e03942c023074"
   },
   "nvim-dap-ui": {
     "branch": "master",
@@ -181,7 +181,7 @@
   },
   "nvim-treesitter": {
     "branch": "master",
-    "commit": "20042941df6c014f611e948cd656afd482823d81"
+    "commit": "aa31b8d4ccaa05e1ab30120e103f72adbd2837bc"
   },
   "nvim-treesitter-textobjects": {
     "branch": "master",

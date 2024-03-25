@@ -28,8 +28,8 @@ unset rc
 
 [[ "$(command -v atuin)" ]] && eval "$(atuin init bash)"
 
-source /var/home/hikarii/.fleek/init.sh
+source ~/.fleek/init.sh
 
 . "$HOME/.cargo/env"
 
-source /var/home/hikarii/.config/broot/launcher/bash/br
+source ~/.config/broot/launcher/bash/br

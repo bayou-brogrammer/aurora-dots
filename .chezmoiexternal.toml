@@ -7,6 +7,10 @@ type = "git-repo"
 url = "https://github.com/bayou-brogrammer/fishconf"
 type = "git-repo"
 
+[".config/zellij/plugins/zjstatus.wasm"]
+url = "https://github.com/dj95/zjstatus/releases/download/v0.13.1/zjstatus.wasm"
+type = "file"
+
 # EXTERNAL REPOSITORIES
 
 [".cache/tpm/tpm"]

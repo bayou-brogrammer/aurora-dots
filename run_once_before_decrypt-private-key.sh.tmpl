@@ -1,7 +1,11 @@
 #!/bin/sh
 
-if [ ! -f "/var/home/hikarii/.config/chezmoi/key.txt" ]; then
-    mkdir -p "/var/home/hikarii/.config/chezmoi"
-    chezmoi age decrypt --output "/var/home/hikarii/.config/chezmoi/key.txt" --passphrase "{{ .chezmoi.sourceDir }}/key.txt.age"
-    chmod 600 "/var/home/hikarii/.config/chezmoi/key.txt"
+if [[ -z "${BW_SESSION}" ]]; then
+  export BW_SESSION="$(bw login --raw)"
+fi
+
+if [ ! -f "${HOME}/.config/chezmoi/key.txt" ]; then
+    mkdir -p "${HOME}/.config/chezmoi"
+    chezmoi age decrypt --output "${HOME}/.config/chezmoi/key.txt" --passphrase "{{ .chezmoi.sourceDir }}/key.txt.age"
+    chmod 600 "${HOME}/.config/chezmoi/key.txt"
 fi
