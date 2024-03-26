@@ -16,15 +16,16 @@ umask = 0o022
 progress = true
 {{ $computer := promptStringOnce . "computer" "computer type (work/self)" }}
 
-## encryption = "gpg"
-## [gpg]
-## recipient = "93AFDAD010B3CB8D"
+encryption = "gpg"
+[gpg]
+args = ["--quiet"]
+recipient = "93AFDAD010B3CB8D"
 
 [hooks.read-source-state.pre]
 command = ".local/share/chezmoi/.install-password-manager.sh"
 
 [git]
-autoCommit = true
+autoCommit = false
 
 [diff]
 command = "delta"
